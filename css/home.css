@@ -56,13 +56,19 @@
     width: 60vw;
     position: absolute;
     transform: translateY(60vh);
-    transition: 0.7s ease;
+    transition: 0.s ease;
 }
 
 #houses div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.2s ease-in-out;
+}
+
+#houses div:hover{
+    transform: scale(1.1);
+
 }
 
 #houses img {

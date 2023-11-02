@@ -1,31 +1,57 @@
 const nav = document.querySelector('nav');
 const house = document.getElementById('houses');
-let scrollAmount = window.innerHeight; 
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("hamburger-nav-menu");
+const readyButton = document.getElementById('ready');
+let scrollAmount = window.innerHeight;
+
+let isScrolling = false;
+let translateY = 60;
+let width = 60;
+const scrollSpeed = 1;
 
 function updateScrollAmount() {
-    scrollAmount = window.innerHeight; 
+    scrollAmount = window.innerHeight;
 }
 
-document.getElementById('ready').addEventListener('click', function() {
+function scrollPageSmoothly(top) {
+    isScrolling = true;
     window.scrollBy({
-      top: scrollAmount,
-      behavior: 'smooth' 
+        top: top,
+        behavior: 'smooth'
     });
-});
+}
 
-window.addEventListener('scroll', () => {
-    nav.style.top = window.scrollY > window.innerHeight-100 ? '0' : '-100%';
-    if (window.scrollY < window.innerHeight - 100) {
-        house.style.transform = 'translateY(60vh)';
-        house.style.width = '60vw';
-        house.style.scale = '1';
+//this took so much time please dont touch this
+function handleScroll() {
+    if (!isScrolling) {
+        translateY = 60 + (window.scrollY / (window.innerHeight - 100)) * 70 * scrollSpeed;
+        width = 60 + (window.scrollY / (window.innerHeight - 100)) * 10 * scrollSpeed;
+
+        const minScale = 1;
+        const maxScale = 1.25;
+        const scale = minScale + (maxScale - minScale) * (window.scrollY / (window.innerHeight - 100));
+
+        house.style.transform = `translateY(${translateY}vh) scale(${scale})`;
+        house.style.width = `${width}vw`;
+    }
+    nav.style.top = window.scrollY > window.innerHeight - 100 ? '0' : '-100%';
+    isScrolling = false;
+}
+
+function toggleHamburger() {
+    hamburger.classList.toggle("active");
+    if (hamburger.classList.contains("active")) {
+        navMenu.style.left = '0';
     } 
     else {
-        house.style.transform = 'translateY(130vh)';
-        house.style.width = '70vw';
-        house.style.scale = '1.2';
+        navMenu.style.left = '-80%';
     }
+}
+
+readyButton.addEventListener('click', () => {
+    scrollPageSmoothly(scrollAmount);
 });
 
+window.addEventListener('scroll', handleScroll);
 window.addEventListener('resize', updateScrollAmount);
-
