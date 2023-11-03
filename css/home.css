@@ -56,7 +56,7 @@
     width: 60vw;
     position: absolute;
     transform: translateY(60vh);
-    transition: 0.s ease;
+    transition: 0.2s ease;
 }
 
 #houses div {
