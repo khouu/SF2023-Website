@@ -2,11 +2,12 @@ const nav           = document.querySelector('nav'),
       house         = document.getElementById('houses'),
       hamburger     = document.getElementById("hamburger"),
       navMenu       = document.getElementById("hamburger-nav-menu"),
-      readyButton   = document.getElementById('ready');
+      readyButton   = document.getElementById('ready'),
+      character     = document.getElementsByClassName('characSet');
 
 const scrollSpeed   = 1,
       minScale      = 1,
-      maxScale      = 1.25;      
+      maxScale      = 1.15;      
 
 let scrollAmount = window.innerHeight;
 
@@ -47,6 +48,7 @@ function handleHousesOnScroll() {
     if (window.scrollY < (window.innerHeight * 1.3 - 200)) {
         house.style.transform = `translateY(${translateY}vh) scale(${scale})`;
         house.style.width = `${width}vw`;
+        character.style.scale = `scale(${scale})`;
         if(window.scrollY > (window.innerHeight - 100)) {
             house.style.pointerEvents = 'auto';
         }
