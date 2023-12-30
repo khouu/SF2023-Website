@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Sports Fest 2023</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../css/schedule.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="icon" type="image/png" href="../mmedia/imgs/logo.png" />
+    </head>
+    <body>
+        <nav>
+            <div id="hamburger" onclick="toggleHamburger()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="logo">
+                <img src="../mmedia/imgs/logo.png">
+                <p>
+                    The Athletic Council
+                </p>
+            </div>
+            <div id="hamburger-nav-menu">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#">Freedom Wall</a></li>
+                    <li><a href="#">Carpho</a></li>
+                    <li><a href="#">Thallo</a></li>
+                    <li><a href="#">Auxo</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div class="house">
+                <div id="house-name">
+                    <p id="name">
+                        Carpho
+                    </p>
+                </div>
+                <div id="house-portrait">
+                    <img onclick="changeHouse()" id="portrait" src="../mmedia/imgs/Carpho.png" class="Carpho">
+                </div>
+            </div>
+            <div class="schedule">
+                <table id="schedule-table">
+                    <tr>
+                      <th>Volleyball</th>
+                      <th>Basketball</th>
+                    </tr>
+                    <tr>
+                        <th>Cat A</th>
+                        <th>Cat B</th>
+                        <th>Cat C</th>
+                    </tr>
+                    <tr>
+                      <td>Thalette vs Carpho</td>
+                      <td>Auxo vs Carpho</td>
+                    </tr>
+                    <tr>
+                      <td>W1 vs Auxo</td>
+                      <td>W1 vs Thalette</td>
+                    </tr>
+                  </table>
+            </div>
+        </main>
+    </body>
+    <footer>
+        
+    </footer>
+    <script type="text/javascript" src="../js/schedule.js"></script>
+</html>
